@@ -1,47 +1,45 @@
 angular.module('starter.services', [])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
+.factory('Evenements', function() {
+  // Modification test pour création de show pour le tab dash
 
   // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Sparrow',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
+  var evenements = [{
+    id: 1,
+    entityid: 1,
+    name: 'Concert du BDA',
+    email: 'sgoetz15@gmail.com',
+    phone: '0672254384',
+    place: 'Kfet',
+    date: '28/10/2016',
+    hour: '21h',
+    capacity: '300',
+    description:'Venez nombreux au prochain concert organisé par votre BDA avec comme invité David Guetta',
+    price: '3',
+    image: 'http://upload.wikimedia.org/wikipedia/commons/1/1c/Paramore_Concert.jpg'
   }, {
     id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
+    entityid: 1,
+    name: 'Tournoi de rugby',
+    email: 'sgoetz15@gmail.com',
+    phone: '0672254384',
+    place: 'Terrain principal',
+    date: '15/11/2016',
+    hour: '13h',
+    capacity: '50',
+    description:'Tournoi de rugby féminin inter-écoles de commerce',
+    price: '0',
+    image: 'http://usmmontargis.typepad.com/.a/6a0120a655c488970b01a73e07884f970d-pi'
   }];
 
   return {
     all: function() {
-      return chats;
+      return evenements;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(evenementId) {
+      for (var i = 0; i < evenements.length; i++) {
+        if (evenements[i].id === parseInt(evenementId)) {
+          return evenements[i];
         }
       }
       return null;

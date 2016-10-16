@@ -6,19 +6,18 @@
    Tes événements à venir
   </div>
   <div class="item item-text-wrap">
-    Concert du BDA
-  </div>
-   <div class="item item-text-wrap">
-    Conférence sur l'art contemporain
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="evenement in evenements" type="item-text-wrap" href="#/tab/evenements/{{evenement.id}}">
+        <img ng-src="{{evenement.image}}">
+        <h2>{{evenement.name}}</h2>
+        <p>{{show.date}}</p>
+        <p>{{show.hour}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
   </div>
   <div class="item item-divider">
     Autres événements suggérés
-  </div>
-  <div class="item item-text-wrap">
-    Apéro Ski Club
-  </div>
-    <div class="item item-text-wrap">
-    Tournoi de rugby
   </div>
 </div>
   </ion-content>
