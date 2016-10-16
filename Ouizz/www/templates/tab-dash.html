@@ -10,8 +10,8 @@
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="evenement in evenements" type="item-text-wrap" href="#/tab/evenements/{{evenement.id}}">
         <img ng-src="{{evenement.image}}">
         <h2>{{evenement.name}}</h2>
-        <p>{{show.date}}</p>
-        <p>{{show.hour}}</p>
+        <p>{{evenement.date}}</p>
+        <p>{{evenement.hour}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
