@@ -1,1 +1,10 @@
-/* Empty. Add your own CSS if you like */
+.card div {
+	color:orange;
+	font-weight:bold;
+}
+.item h2 {
+	font-weight:bold;
+}
+.padding img {
+	width:80px;
+}
