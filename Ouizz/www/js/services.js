@@ -19,7 +19,7 @@ angular.module('starter.services', [])
     image: 'http://upload.wikimedia.org/wikipedia/commons/1/1c/Paramore_Concert.jpg'
   }, {
     id: 2,
-    entityid: 2,
+    entityid: 1,
     name: 'Tournoi de rugby',
     email: 'sgoetz15@gmail.com',
     phone: '0672254384',
