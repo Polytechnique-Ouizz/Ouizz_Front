@@ -24,4 +24,5 @@
 .item-icon-right {
 	height:95px;
 	line-height:15px;
+	border: 1px orange dotted;
 }
