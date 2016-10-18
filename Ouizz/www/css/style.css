@@ -26,3 +26,10 @@
 	line-height:15px;
 	border: 1px orange dotted;
 }
+
+.padding p {
+	font-style:italic;
+	color:grey;
+	line-height:12px;
+	font-size:12px;
+}
