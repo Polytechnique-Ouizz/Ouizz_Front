@@ -1,6 +1,9 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, Evenements) {
+	// tentative de faire ce que Nathan nous a dit : mettre la fonction scope dans DashCtrl
+  $scope.evenements = Evenements.all();
+})
 
 .controller('EvenementsCtrl', function($scope, Evenements) {
   // With the new view caching in Ionic, Controllers are only called
