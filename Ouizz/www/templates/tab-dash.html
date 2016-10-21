@@ -3,7 +3,7 @@
     <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
   <ion-content class="padding">
-    <p align="center"><img src="img/logo_blanc.png"/ width=100px align="center"></p>
+    <p align="center"><img src="img/logo_blanc.png" width=100px align="center"></p>
     <p align="center"> Laisse toi <b>Ouizzer</b> par ton application préférée </p>
     <p align="center"> Et ne rate plus aucun événement sur ton campus adoré </p>
     <div class="card">
@@ -16,7 +16,7 @@
   <div class="item item-text-wrap">
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="evenement in evenements" type="item-text-wrap" href="#/tab/evenements/{{evenement.id}}">
-        <img ng-src="{{evenement.image}}">
+        <img ng-src="{{evenement.image}}" class="small-image">
         <h2>{{evenement.name}}</h2>
         <p>{{evenement.date}}</p>
         <p>{{evenement.hour}}</p>
