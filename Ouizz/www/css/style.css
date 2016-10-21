@@ -5,6 +5,10 @@
 	height:20px;
 }
 
+.background {
+	background-color: #FFEBCD;
+}
+
 .bar.bar-dark .title {
     font-size: 25px;
 }
@@ -44,3 +48,4 @@
 	color:#FF8C00;
 	font-size:20px;
 }
+
