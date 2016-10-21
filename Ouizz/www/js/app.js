@@ -50,14 +50,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
-    .state('tab.evenement-detail', {
-      url: '/evenements/:evenementId',
-      views: {
-        'tab-dash': {
-          templateUrl: 'templates/evenement-detail.html',
-          controller: 'EvenementDetailCtrl'
-        }
+  .state('tab.evenement-detail', {
+    url: '/evenements/:evenementId',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/evenement-detail.html',
+        controller: 'EvenementDetailCtrl'
       }
+    }
     });
 
   // if none of the above states are matched, use this as the fallback
