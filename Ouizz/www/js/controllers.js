@@ -2,7 +2,10 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, Events) {
 	// tentative de faire ce que Nathan nous a dit : mettre la fonction scope dans DashCtrl
-  $scope.evenements = Events.all();
+  $scope.events = [];
+    Events.all().then(function(apiEvents) {
+      $scope.events = apiEvents;
+});
 })
 
 
