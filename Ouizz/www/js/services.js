@@ -24,7 +24,7 @@ angular.module('starter.services', [])
       return null;
     },
     register: function(eventId, ouizzuser_id) {
-      return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/registrations.json", {registration: {ouizzuser_id}}).then(function(response){
+      return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
         registration = response.data;
         return registration
     });
