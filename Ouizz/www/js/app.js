@@ -51,9 +51,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
   
     .state('tab.event-detail', {
-      url: '/Events/:eventId',
+      url: '/events/:eventId',
       views: {
-        'tab-Events': {
+        'tab-dash': {
           templateUrl: 'templates/event-detail.html',
           controller: 'EventDetailCtrl'
         }
