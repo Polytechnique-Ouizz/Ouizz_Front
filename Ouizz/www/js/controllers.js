@@ -38,4 +38,13 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   };
 
+  $scope.register = function(ouizzuser_username, ouizzuser_password) {
+    return Events.register($stateParams.eventId, ouizzuser_username, ouizzuser_password)
+    .then(function(registration) {
+      console.log("Registration", Registration);
+      alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
+      $scope.closeModal();
+    })
+  }
+
   });

@@ -1,8 +1,19 @@
- <ion-modal-view>
+<ion-modal-view>
     <ion-header-bar>
-      <h1 class="title">My Modal title</h1>
+      <h1 class="title">{{event.name}}</h1>
+      <button class="button button-secondary" ng-click="modal.hide()">Cancel</button>
     </ion-header-bar>
     <ion-content>
-      Hello!
+      <label class="item item-input">
+  		<span class="input-label">Votre nom</span>
+  		<input type="text" ng-model="ouizzuser_username">
+	</label>
+	 <label class="item item-input">
+    	<span class="input-label">Votre mot de passe</span>
+    	<input type="text" ng-model="ouizzuser_password">
+  	</label>
+  	<button class="button button-block button-positive" ng-disabled="!ouizzuser_username">
+  S'inscrire au nom de {{ouizzuser_username || ''}} 
+</button>
     </ion-content>
   </ion-modal-view>
