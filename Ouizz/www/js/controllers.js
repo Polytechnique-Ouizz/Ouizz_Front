@@ -21,6 +21,21 @@ angular.module('starter.controllers', [])
   $scope.events = Events.all();
 })
 
-.controller('EventDetailCtrl', function($scope, $stateParams, Events) {
+.controller('EventDetailCtrl', function($scope, $stateParams, $ionicModal, Events) {
   $scope.event = Events.get($stateParams.eventId);
-});
+
+  $ionicModal.fromTemplateUrl('templates/modal-register.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  });
