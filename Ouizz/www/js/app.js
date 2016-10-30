@@ -49,13 +49,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
-
-  .state('tab.evenement-detail', {
-    url: '/evenements/:evenementId',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/evenement-detail.html',
-        controller: 'EvenementDetailCtrl'
+  
+    .state('tab.event-detail', {
+      url: '/Events/:eventId',
+      views: {
+        'tab-Events': {
+          templateUrl: 'templates/event-detail.html',
+          controller: 'EventDetailCtrl'
+        }
       }
     }
     });
