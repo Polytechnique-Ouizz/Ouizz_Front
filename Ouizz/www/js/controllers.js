@@ -1,12 +1,15 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, Evenements) {
+.controller('DashCtrl', function($scope, Events) {
 	// tentative de faire ce que Nathan nous a dit : mettre la fonction scope dans DashCtrl
-  $scope.evenements = Evenements.all();
+  $scope.events = [];
+    Events.all().then(function(apiEvents) {
+      $scope.events = apiEvents;
+});
 })
 
 
-.controller('EvenementsCtrl', function($scope, Evenements) {
+.controller('EventsCtrl', function($scope, Events) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -15,9 +18,9 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.evenements = Evenements.all();
+  $scope.events = Events.all();
 })
 
-.controller('EvenementDetailCtrl', function($scope, $stateParams, Evenements) {
-  $scope.evenement = Evenements.get($stateParams.evenementId);
+.controller('EventDetailCtrl', function($scope, $stateParams, Events) {
+  $scope.event = Events.get($stateParams.eventId);
 });
