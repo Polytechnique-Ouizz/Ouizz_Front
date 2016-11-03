@@ -14,7 +14,8 @@ angular.module('starter.services', [])
           events = response.data;
           return events;
         })
-      },
+    },
+
     get: function(eventId) {
       for (var i = 0; i < events.length; i++) {
         if (events[i].id === parseInt(eventId)) {
@@ -23,6 +24,7 @@ angular.module('starter.services', [])
       }
       return null;
     },
+
     get_ouizzuser_id: function(ouizzuser_username, ouizzuser_password) 
     {
       return $http.get("http://ouizz-api.herokuapp.com/ouizzusers.json")
@@ -42,7 +44,9 @@ angular.module('starter.services', [])
         else throw "Utilisateur inconnu"
       }
     },
-    register: function(eventId, ouizzuser_id) {
+
+    register: function(eventId, ouizzuser_id) 
+    {
       return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
         registration = response.data;
         return registration
