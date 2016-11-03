@@ -23,6 +23,25 @@ angular.module('starter.services', [])
       }
       return null;
     },
+    get_ouizzuser_id: function(ouizzuser_username, ouizzuser_password) 
+    {
+      return $http.get("http://ouizz-api.herokuapp.com/ouizzusers.json")
+      ouizzusers = response.data; // liste des users
+      founduser = undefined;
+      for (user in ouizzusers)
+      {
+        if (ouizzusers[user].username == ouizzuser_username) // on cherche le user avec le username en entrée
+        {
+          founduser = ouizzusers[user] // trouvé ! 
+          if (founduser.password == ouizzuser_password) // on cherche si le password est le bon
+          {
+            return founduser.id; // bon password
+          }
+          else throw "Mot de passe incorrect"
+        }
+        else throw "Utilisateur inconnu"
+      }
+    },
     register: function(eventId, ouizzuser_id) {
       return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
         registration = response.data;
