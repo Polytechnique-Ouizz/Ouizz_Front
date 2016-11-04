@@ -7,13 +7,13 @@ angular.module('starter.services', [])
   var events = [];
 
   
-    return {
+  return {
     all: function() {
       return $http.get("http://ouizz-api.herokuapp.com/events.json")
-        .then(function(response) {
-          events = response.data;
-          return events;
-        })
+      .then(function(response) {
+        events = response.data;
+        return events;
+      })
     },
 
     get: function(eventId) {
@@ -27,22 +27,24 @@ angular.module('starter.services', [])
 
     get_ouizzuser_id: function(ouizzuser_username, ouizzuser_password) 
     {
-      return $http.get("http://ouizz-api.herokuapp.com/ouizzusers.json")
-      ouizzusers = response.data; // liste des users
-      founduser = undefined;
-      for (user in ouizzusers)
+      return $http.get("http://ouizz-api.herokuapp.com/ouizzusers.json").then(function(response)
       {
-        if (ouizzusers[user].username == ouizzuser_username) // on cherche le user avec le username en entrée
+        ouizzusers = response.data; // liste des users
+        founduser = undefined;
+        for (user in ouizzusers)
         {
-          founduser = ouizzusers[user] // trouvé ! 
-          if (founduser.password == ouizzuser_password) // on cherche si le password est le bon
+          if (ouizzusers[user].username == ouizzuser_username) // on cherche le user avec le username en entrée
           {
-            return founduser.id; // bon password
+            founduser = ouizzusers[user] // trouvé ! 
+            if (founduser.password == ouizzuser_password) // on cherche si le password est le bon
+            {
+              return founduser.id; // bon password
+            }
+            else throw "Mot de passe incorrect"
           }
-          else throw "Mot de passe incorrect"
-        }
         else throw "Utilisateur inconnu"
-      }
+        }
+      });
     },
 
     register: function(eventId, ouizzuser_id) 
@@ -50,7 +52,7 @@ angular.module('starter.services', [])
       return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
         registration = response.data;
         return registration
-    });
-  }
-};
+      });
+    }
+  };
 });
