@@ -38,18 +38,10 @@ angular.module('starter.controllers', [])
     $scope.modal.hide();
   };
 
-  /*$scope.get_ouizzuser_id = function(ouizzuser_username, ouizzuser_password)
-  {
-
-  };*/
-  
-
-//Est-ce utile de définir une fonction vide ici ?
-
-
-  $scope.register = function(ouizzuser_id) {
-    console.log(ouizzuser_id.username + ', ' + ouizzuser_id.password)
-    return Events.register($stateParams.eventId, Events.get_ouizzuser_id(ouizzuser_id.username, ouizzuser_id.password))
+  $scope.register = function(ouizzuser_username, ouizzuser_password) {
+    console.log(ouizzuser_username + ', ' + ouizzuser_password)
+    console.log('$stateParams.eventId = ' + $stateParams.eventId)
+    return Events.register($stateParams.eventId, Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password))
     .then(function(registration) {
       console.log("Registration", Registration);
       alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
