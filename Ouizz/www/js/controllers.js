@@ -48,6 +48,7 @@ angular.module('starter.controllers', [])
 
 
   $scope.register = function(ouizzuser_id) {
+    console.log(ouizzuser_id.username + ', ' + ouizzuser_id.password)
     return Events.register($stateParams.eventId, Events.get_ouizzuser_id(ouizzuser_id.username, ouizzuser_id.password))
     .then(function(registration) {
       console.log("Registration", Registration);

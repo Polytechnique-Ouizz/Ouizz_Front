@@ -31,14 +31,14 @@ angular.module('starter.services', [])
       {
         ouizzusers = response.data; // liste des users
         founduser = undefined;
-        console.log('1')
+        //console.log('1')
         for (user in ouizzusers) 
         {
-          console.log(ouizzusers[user].id + ', ' + ouizzusers[user].username + ', ' + ouizzusers[user].password)
-          console.log(ouizzuser_username + ', ' + ouizzuser_password)
+          //console.log(ouizzusers[user].id + ', ' + ouizzusers[user].username + ', ' + ouizzusers[user].password)
+          //console.log(ouizzuser_username + ', ' + ouizzuser_password)
           if (ouizzusers[user].username === ouizzuser_username) // on cherche le user avec le username en entrée
           {
-            console.log(ouizzusers[user].username)
+            //console.log(ouizzusers[user].username)
             founduser = ouizzusers[user] // trouvé ! 
             if (founduser.password == ouizzuser_password) // on cherche si le password est le bon
             {
