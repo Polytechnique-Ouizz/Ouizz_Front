@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <ion-view view-title="Ouizz" class="background" >
+=======
+<ion-view view-title="Ouizz" class="background">
+>>>>>>> db
 <ion-nav-bar class="bar-dark">
     <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
@@ -17,11 +21,15 @@
     <ion-list>
 
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/events/{{event.id}}">
-        <img ng-src="{{event.image}}">
+        <img ng-src="{{event.image}}" class="small-image">
         <h2>{{event.name}}</h2>
         <p>{{event.date}}</p>
+<<<<<<< HEAD
         <p>{{event.hour}}</p>
 
+=======
+        <p>{{event.time}}</p>
+>>>>>>> db
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>

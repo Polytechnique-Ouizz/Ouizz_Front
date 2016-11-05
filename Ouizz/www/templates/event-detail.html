@@ -4,6 +4,7 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
+<<<<<<< HEAD
 <ion-view view-title="{{evenement.name}}" class="background">
   <ion-content>
     <div class="list card">
@@ -17,13 +18,35 @@
 
       <div class="item item-body">
         <img class="full-image" ng-src="{{event.image}}">
+=======
+<ion-view view-title="{{event.name}}" class="background">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item">
+        <img class="full-image" ng-src="{{event.image}}">
+        <h2>{{event.name}}</h2>
+        <p>{{event.date}}</p>
+        <p>{{event.time}}</p>
+        <p>{{event.location}}
+      </div>
+
+      <div class="item item-body">
+>>>>>>> db
         <p>
           {{event.description}}
         </p>
       </div>
+<<<<<<< HEAD
       <button class="button button-block button-positive">
+=======
+      <button class="button button-block button-energized" ng-click="openModal()">
+>>>>>>> db
         S'inscrire pour {{event.price}}€
       </button>
     </div>
   </ion-content>
+<<<<<<< HEAD
 </ion-view>
+=======
+</ion-view>
+>>>>>>> db

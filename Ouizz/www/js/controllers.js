@@ -21,6 +21,39 @@ angular.module('starter.controllers', [])
   $scope.events = Events.all();
 })
 
-.controller('EventDetailCtrl', function($scope, $stateParams, Events) {
+.controller('EventDetailCtrl', function($scope, $stateParams, $ionicModal, Events) {
   $scope.event = Events.get($stateParams.eventId);
-});
+
+  $ionicModal.fromTemplateUrl('templates/modal-register.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  /*$scope.get_ouizzuser_id = function(ouizzuser_username, ouizzuser_password)
+  {
+
+  };*/
+  
+
+//Est-ce utile de définir une fonction vide ici ?
+
+
+  $scope.register = function(ouizzuser_id) {
+    return Events.register($stateParams.eventId, Events.get_ouizzuser_id(ouizzuser_id.username, ouizzuser_id.password))
+    .then(function(registration) {
+      console.log("Registration", Registration);
+      alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
+      $scope.closeModal();
+    })
+  }
+
+  });
