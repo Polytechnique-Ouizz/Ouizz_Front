@@ -38,11 +38,11 @@ angular.module('starter.services', [])
           //console.log(ouizzuser_username + ', ' + ouizzuser_password)
           if (ouizzusers[user].username === ouizzuser_username) // on cherche le user avec le username en entrée
           {
-            console.log('Utilisateur trouvé')
+            //console.log('Utilisateur trouvé')
             founduser = ouizzusers[user] // trouvé ! 
             if (founduser.password == ouizzuser_password) // on cherche si le password est le bon
             {
-              console.log('Mot de passe correct')
+              //console.log('Mot de passe correct')
               console.log('Id : ' +  founduser.id)
               return founduser.id; // bon password
             }

@@ -39,7 +39,13 @@ angular.module('starter.controllers', [])
   };
 
   $scope.register = function(ouizzuser_username, ouizzuser_password) {
-    console.log(ouizzuser_username + ', ' + ouizzuser_password)
+
+    var id = (Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password));
+    console.log('ouizzuser_id = ' + id)
+    id = id.toString();
+    console.log('ouizzuser_id = ' + id)
+
+    console.log('ouizzuser_username = ' + ouizzuser_username + ', ouizzuser_password = ' + ouizzuser_password)
     console.log('$stateParams.eventId = ' + $stateParams.eventId)
     return Events.register($stateParams.eventId, Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password))
     .then(function(registration) {
