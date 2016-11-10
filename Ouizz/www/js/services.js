@@ -47,22 +47,12 @@ angular.module('starter.services', [])
               return founduser.id; // bon password
             }
             else {
-            var alertPopup = $ionicPopup.alert({
-               title: 'Mot de passe incorrect',
-               template: 'Veuillez réessayer'
-             });
+            return $ionicPopup.showAlert();
             throw "Mot de passe incorrect"
             }
           }
         }
-        var alertPopup = $ionicPopup.alert({
-               title: 'Mot de passe incorrect',
-               template: 'Veuillez réessayer'
-             });
-        var alertPopup = $ionicPopup.alert({
-               title: 'Utilisateur inconnu',
-               template: 'Veuillez réessayer'
-             });
+        return $ionicPopup.showAlert();
         throw "Utilisateur inconnu"
       });
     },
