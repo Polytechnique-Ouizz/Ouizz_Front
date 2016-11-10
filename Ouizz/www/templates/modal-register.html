@@ -1,7 +1,7 @@
 <ion-modal-view>
     <ion-header-bar class="bar-dark">
       <h1 class="title">{{event.name}}</h1>
-      <button class="button2" ng-click="modal.hide()"><b>Cancel</b></button>
+      <button class="button2" side="left" ng-click="modal.hide()"><b>Cancel</b></button>
     </ion-header-bar>
     <ion-content class="background">
       <label class="item item-input">
@@ -12,7 +12,7 @@
     	<span class="input-label"><i class="icon ion-android-lock"></i><b>Votre mot de passe</b></span>
     	<input type="text" ng-model="ouizzuser_password">
   	</label>
-  	<button class="button1 button-block" ng-click="register(ouizzuser_username, ouizzuser_password)" ng-disabled="!ouizzuser_username">
+  	<button class="button1 button-block" ng-click="showAlert()" ng-disabled="!ouizzuser_username">
   	<i class="icon ion-compose"></i>
   S'inscrire au nom de <b>{{ouizzuser_username}}</b>
 </button>
