@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   // An alert dialog
   $scope.showAlertUsername = function() {
     var alertPopup = $ionicPopup.alert({
-    title: 'Utilisateur inconnu!',
+    title: 'Utilisateur inconnu !',
     template: 'Veuillez réessayer',
    });
   };
