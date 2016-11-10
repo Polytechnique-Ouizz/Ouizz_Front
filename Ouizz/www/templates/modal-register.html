@@ -1,19 +1,19 @@
 <ion-modal-view>
-    <ion-header-bar>
+    <ion-header-bar class="bar-dark">
       <h1 class="title">{{event.name}}</h1>
-      <button class="button button-secondary" ng-click="modal.hide()">Cancel</button>
+      <button class="button button-secondary button-energized" ng-click="modal.hide()"><b>Cancel</b></button>
     </ion-header-bar>
-    <ion-content>
+    <ion-content class="background">
       <label class="item item-input">
-  		<span class="input-label">Votre nom</span>
+  		<span class="input-label"><b>Votre nom</b></span>
   		<input type="text" ng-model="ouizzuser_username">
 	</label>
 	 <label class="item item-input">
-    	<span class="input-label">Votre mot de passe</span>
+    	<span class="input-label"><b>Votre mot de passe</b></span>
     	<input type="text" ng-model="ouizzuser_password">
   	</label>
-  	<button class="button button-block button-positive" ng-click="register(ouizzuser_username, ouizzuser_password)" ng-disabled="!ouizzuser_username">
-  S'inscrire au nom de {{ouizzuser_username}} 
+  	<button class="button button-block button-energized" ng-click="register(ouizzuser_username, ouizzuser_password)" ng-disabled="!ouizzuser_username">
+  S'inscrire au nom de <b>{{ouizzuser_username}}</b> 
 </button>
     </ion-content>
   </ion-modal-view>
