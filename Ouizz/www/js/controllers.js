@@ -42,7 +42,8 @@ angular.module('starter.controllers', [])
   $scope.showAlert = function() {
     var alertPopup = $ionicPopup.alert({
     title: 'Utilisateur inconnu',
-    template: 'Veuillez réessayer'
+    template: 'Veuillez réessayer',
+    cssClass: 'custom-popup'
    });
   };
 
@@ -58,7 +59,8 @@ angular.module('starter.controllers', [])
     	.then(function(registration) {
       	console.log("Registration", Registration);
       	alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
-     	 $scope.closeModal();
+     	 $scope.close
+       ();
   	  })
 	});
   }
