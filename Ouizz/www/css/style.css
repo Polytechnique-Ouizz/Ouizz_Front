@@ -67,6 +67,11 @@
 		font-size: 20px;
 }
 
+.popup-buttons .button.activated
+{
+  background-color: #CC7000;
+}
+
 .popup-head {
     background-color: #444;
 }
@@ -75,11 +80,6 @@
 	color: white;
 	font-size: 20px;
 
-}
-
-.popup-buttons .button.activated
-{
-  background-color: #FF8C00;
 }
 
 .popup-body {
