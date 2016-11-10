@@ -61,3 +61,28 @@
 .padding img {
 	widht:80px;
 }
+
+.popup-buttons .button {
+		background-color: #FF8C00;
+		font-size: 20px;
+}
+
+.popup-buttons .button.activated
+{
+  background-color: #CC7000;
+}
+
+.popup-head {
+    background-color: #444;
+}
+
+.popup-title {
+	color: white;
+	font-size: 20px;
+
+}
+
+.popup-body {
+	font-size: 18px;
+	font-style: italic;
+}
