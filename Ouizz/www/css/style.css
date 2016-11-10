@@ -7,14 +7,12 @@
 .item h2 {
 	color:#696969;
 	font-weight:bold;
-	text-decoration:underline;
 	font-family:helvetica;
 	font-size:20px;
 }
 .item h4 {
 	color:#696969;
 	font-weight:bold;
-	text-decoration:underline;
 	font-family:helvetica;
 	font-size:15px;
 }
@@ -32,6 +30,14 @@
 	width:80px;
 }
 
+.full-image {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	width:100%;
+	height:100%;
+}
+
 .item-icon-right {
 	height:95px;
 	line-height:15px;
@@ -44,10 +50,6 @@
 }
 .background {
 	background-color:#FFEBCD;
-}
-
-.full-image {
-	width:100%;
 }
 
 .item-avatar > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
@@ -71,10 +73,16 @@
 	font-size:18px;
 	height:48px;
 }
-
+.button1 i {
+	font-size:23px;
+	font:;
+}
 .button2 {
 	background-color:#FF8C00;
 	border:none;
 	color:white;
 	font:bold;
+}
+.input-label b {
+	padding-left:20px;
 }
