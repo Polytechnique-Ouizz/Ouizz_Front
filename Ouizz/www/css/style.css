@@ -1,17 +1,25 @@
 .card h3 {
-	color:#FFF8DC;
+	color:white;
 	font-weight:bold;
 	font-size:16px;
 	height:20px;
 }
+.card b {
+	padding-left:12px;
+}
+.card i {
+	font-size:18px;
+	color:#FF8C00;
+}
+
 .item h2 {
-	color:#696969;
+	color:#444;
 	font-weight:bold;
 	font-family:helvetica;
 	font-size:20px;
 }
 .item h4 {
-	color:#696969;
+	color:#444;
 	font-weight:bold;
 	font-family:helvetica;
 	font-size:15px;
@@ -21,12 +29,20 @@
 }
 
 .item p {
-	color:#696969;
+	color:#444;
 	font-style:italic;
 	font-weight:normal;
-	font-size:12px;
+	font-size:13px;
 }
 
+.item h6 {
+	color:#444;
+	font-style:italic;
+	font-weight:normal;
+	font-size:16px;
+	padding-top:0px;
+	padding-bottom:5px;
+}
 
 .full-image {
 	display:block;
@@ -43,8 +59,9 @@
 }
 .padding p {
 	font-style:italic;
-	color:#696969;
+	color:#444;
 	line-height:20px;
+	font-size:12px;
 }
 .background {
 	background-color:#FFEBCD;
@@ -107,8 +124,8 @@
 }
 
 .button1 i {
-	font-size:23px;
-	font:;
+	font-size:20px;
+	color:white;
 }
 .button2 {
 	background-color:#FF8C00;
