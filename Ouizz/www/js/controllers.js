@@ -39,30 +39,40 @@ angular.module('starter.controllers', [])
   };
 
   // An alert dialog
-  $scope.showAlert = function() {
+  $scope.showAlertUsername = function() {
     var alertPopup = $ionicPopup.alert({
-    title: 'Utilisateur inconnu',
+    title: 'Utilisateur inconnu!',
     template: 'Veuillez réessayer',
-    cssClass: 'custom-popup'
+   });
+  };
+
+  $scope.showAlertPassword = function() {
+    var alertPopup = $ionicPopup.alert({
+    title: 'Mot de passe erroné !',
+    template: 'Veuillez réessayer',
+   });
+  };
+
+  $scope.showAlertAgreed = function() {
+    var alertPopup = $ionicPopup.alert({
+    title: 'C\'est tout bon !',
+    template: 'Vous êtes désormais inscrit(e)',
    });
   };
 
   $scope.register = function(ouizzuser_username, ouizzuser_password) {
 
-   Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password).then(function(id){
+    Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password, $scope).then(function(id) {
     	var id = id ;
-		console.log('ouizzuser_id = ' + id);
+		  console.log('ouizzuser_id = ' + id);
     	console.log('ouizzuser_username = ' + ouizzuser_username + ', ouizzuser_password = ' + ouizzuser_password);
     	console.log('$stateParams.eventId = ' + $stateParams.eventId);
     	
-   		return Events.register($stateParams.eventId, id)
-    	.then(function(registration) {
+   		return Events.register($stateParams.eventId, id).then(function(registration) {
       	console.log("Registration", Registration);
       	alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
-     	 $scope.close
-       ();
+     	  $scope.close;
   	  })
-	});
+    });
   }
-
 });

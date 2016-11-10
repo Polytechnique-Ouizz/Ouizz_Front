@@ -25,7 +25,7 @@ angular.module('starter.services', [])
       return null;
     },
 
-    get_ouizzuser_id: function(ouizzuser_username, ouizzuser_password) 
+    get_ouizzuser_id: function(ouizzuser_username, ouizzuser_password, scope) 
     {
       return $http.get("http://ouizz-api.herokuapp.com/ouizzusers.json").then(function(response)
       {
@@ -44,16 +44,17 @@ angular.module('starter.services', [])
             {
               //console.log('Mot de passe correct')
               console.log('Id : ' +  founduser.id)
+              scope.showAlertAgreed();
               return founduser.id; // bon password
             }
             else {
-            return $ionicPopup.showAlert();
-            throw "Mot de passe incorrect"
+            scope.showAlertPassword();
+            throw "Mot de passe erroné !"
             }
           }
         }
-        return $ionicPopup.showAlert();
-        throw "Utilisateur inconnu"
+        scope.showAlertUsername();
+        throw "Utilisateur inconnu !"
       });
     },
 
