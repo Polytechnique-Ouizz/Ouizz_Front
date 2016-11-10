@@ -58,6 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'EventDetailCtrl'
         }
       }
+    }
     });
 
   // if none of the above states are matched, use this as the fallback
