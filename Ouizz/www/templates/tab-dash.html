@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-<ion-view view-title="Ouizz" class="background" >
-=======
 <ion-view view-title="Ouizz" class="background">
->>>>>>> db
 <ion-nav-bar class="bar-dark">
     <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
   <ion-content class="padding">
     <p align="center"><img src="img/logo_blanc.png" width=100px align="center"></p>
-    <p align="center"> Laisse toi <b>Ouizzer</b> par ton application préférée </p>
-    <p align="center"> Et ne rate plus aucun événement sur ton campus adoré </p>
     <div class="card">
   <div class="item item-dark item-divider">
      <h3> Tes événements à venir </h3>
@@ -22,7 +16,7 @@
 
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/events/{{event.id}}">
         <img ng-src="{{event.image}}" class="small-image">
-        <h2>{{event.name}}</h2>
+        <h4>{{event.name}}</h4>
         <p>{{event.date}}</p>
         <p>{{event.time}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
