@@ -26,9 +26,7 @@
 	font-weight:normal;
 	font-size:12px;
 }
-.padding img {
-	width:80px;
-}
+
 
 .full-image {
 	display:block;
@@ -63,9 +61,7 @@
      border-radius: 50%;
  }
 
-.padding img {
-	width:80px;
-}
+
 
 .popup-buttons .button {
 		background-color: #FF8C00;
