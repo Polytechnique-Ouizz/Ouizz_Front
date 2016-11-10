@@ -99,6 +99,17 @@
 	font-size:18px;
 	height:48px;
 }
+
+.button1.activated
+{
+  background-color: #CC7000;
+}
+
+.button2.activated
+{
+  background-color: #CC7000;
+}
+
 .button1 i {
 	font-size:23px;
 	font:;
