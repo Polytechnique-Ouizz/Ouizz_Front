@@ -1,11 +1,59 @@
+var id = 0;
+
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope, Events) {
-	// tentative de faire ce que Nathan nous a dit : mettre la fonction scope dans DashCtrl
+.controller('DashCtrl', function($scope, $ionicPopup, $ionicModal, Events) {
   $scope.events = [];
     Events.all().then(function(apiEvents) {
       $scope.events = apiEvents;
-});
+	})
+
+
+$ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, animation: 'slide-in-up'}).then(function(modal) {
+    $scope.modal = modal;
+  });
+
+  $scope.openModal = function() {
+    $scope.modal.show();
+  };
+
+   $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  // An alert dialog
+  $scope.showAlertUsername = function() {
+    var alertPopup = $ionicPopup.alert({
+    title: 'Utilisateur inconnu !',
+    template: 'Veuillez réessayer',
+   });
+  };
+
+  $scope.showAlertPassword = function() {
+    var alertPopup = $ionicPopup.alert({
+    title: 'Mot de passe erroné !',
+    template: 'Veuillez réessayer',
+   });
+  }
+
+  $scope.showAlertAgreed = function() {
+    var alertPopup = $ionicPopup.alert({
+    title: 'C\'est tout bon !',
+    template: 'Vous êtes désormais inscrit(e)',
+   });
+  };
+
+  $scope.connexion = function(ouizzuser_username, ouizzuser_password) {
+
+    Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password, $scope).then(function(id) {
+    	var id = id ;
+		  console.log('ouizzuser_id = ' + id);
+    	console.log('ouizzuser_username = ' + ouizzuser_username + ', ouizzuser_password = ' + ouizzuser_password);
+    	
+   		return id;
+    });
+  }
+
 })
 
 
@@ -24,6 +72,7 @@ angular.module('starter.controllers', [])
 .controller('EventDetailCtrl', function($scope, $ionicPopup, $stateParams, $ionicModal, Events) {
   $scope.event = Events.get($stateParams.eventId);
 
+
   $ionicModal.fromTemplateUrl('templates/modal-register.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -34,6 +83,8 @@ angular.module('starter.controllers', [])
   $scope.openModal = function() {
     $scope.modal.show();
   };
+
+
   $scope.closeModal = function() {
     $scope.modal.hide();
   };
