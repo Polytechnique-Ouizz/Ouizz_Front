@@ -1,4 +1,4 @@
-var id = 0;
+var iduser = 0;
 
 angular.module('starter.controllers', [])
 
@@ -6,6 +6,11 @@ angular.module('starter.controllers', [])
   $scope.events = [];
     Events.all().then(function(apiEvents) {
       $scope.events = apiEvents;
+	})
+
+	$scope.myevents = [];
+    Events.allmine(iduser).then(function(apiEvents) {
+      $scope.myevents = apiEvents;
 	})
 
 
@@ -46,7 +51,7 @@ $ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, an
   $scope.connexion = function(ouizzuser_username, ouizzuser_password) {
 
     Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password, $scope).then(function(id) {
-    	var id = id ;
+    	iduser = id ;
 		  console.log('ouizzuser_id = ' + id);
     	console.log('ouizzuser_username = ' + ouizzuser_username + ', ouizzuser_password = ' + ouizzuser_password);
     	
@@ -71,7 +76,6 @@ $ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, an
 
 .controller('EventDetailCtrl', function($scope, $ionicPopup, $stateParams, $ionicModal, Events) {
   $scope.event = Events.get($stateParams.eventId);
-
 
   $ionicModal.fromTemplateUrl('templates/modal-register.html', {
     scope: $scope,
@@ -111,19 +115,12 @@ $ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, an
    });
   };
 
-  $scope.register = function(ouizzuser_username, ouizzuser_password) {
-
-    Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password, $scope).then(function(id) {
-    	var id = id ;
-		  console.log('ouizzuser_id = ' + id);
-    	console.log('ouizzuser_username = ' + ouizzuser_username + ', ouizzuser_password = ' + ouizzuser_password);
-    	console.log('$stateParams.eventId = ' + $stateParams.eventId);
-    	
-   		return Events.register($stateParams.eventId, id).then(function(registration) {
+  $scope.register = function() {
+    	console.log(iduser);
+   		return Events.register($stateParams.eventId, iduser).then(function(registration) {
       	console.log("Registration", Registration);
       	alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
      	  $scope.close;
   	  })
-    });
   }
 });
