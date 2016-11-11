@@ -21,6 +21,9 @@ angular.module('starter.controllers', [])
   $scope.events = Events.all();
 })
 
+
+
+
 .controller('EventDetailCtrl', function($scope, $ionicPopup, $stateParams, $ionicModal, Events) {
   $scope.event = Events.get($stateParams.eventId);
 
