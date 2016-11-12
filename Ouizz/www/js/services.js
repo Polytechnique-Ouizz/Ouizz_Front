@@ -5,6 +5,8 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var events = [];
+  var registrations = [];
+  var myevents = [];
 
   
   return {
@@ -15,6 +17,30 @@ angular.module('starter.services', [])
         return events;
       })
     },
+
+	allmine: function(iduser) {
+      return $http.get("http://ouizz-api.herokuapp.com/registrations.json")
+      .then(function(response) {
+        registrations = response.data;
+        console.log("iduser:" + iduser)
+		myevents.push(events[1]);
+        /*
+        for (registration in registrations){
+        	console.log(iduser);
+        	if (registration.ouizzuser_id == iduser){
+        		for (event in events){
+        			if (event.id == registration.event_id){
+        				myevents.push(event);
+        			}
+        		}
+        	}
+        }
+        */
+
+        return myevents;
+      })
+    },
+
 
     get: function(eventId) {
       for (var i = 0; i < events.length; i++) {
