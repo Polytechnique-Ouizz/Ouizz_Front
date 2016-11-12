@@ -52,7 +52,8 @@ $ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, an
 
     Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password, $scope).then(function(id) {
     	iduser = id ;
-		  console.log('ouizzuser_id = ' + id);
+	Events.allmine(id);
+	console.log('ouizzuser_id = ' + id);
     	console.log('ouizzuser_username = ' + ouizzuser_username + ', ouizzuser_password = ' + ouizzuser_password);
     	
    		return id;
