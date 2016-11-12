@@ -6,7 +6,10 @@
 -->
 
 <ion-view view-title="{{event.name}}" class="background">
+	<script type="text/javascript" src="../js/ics.deps.min.js"></script>
+	<script type="text/javascript" src="../js/demo/demo.js"></script>
 <ion-nav-bar class="bar-dark">
+
     <ion-nav-back-button>
     </ion-nav-back-button>
     <!--Logo-->
@@ -31,7 +34,10 @@
       <i class="icon ion-compose"></i>
        <b> S'inscrire pour {{event.price}}€ </b>
       </button>
-      
     </div>
+
+
+	<a class="button1 button-block" href="javascript:cal_single.download('Awesome Day')">Ajouter au calendrier</a>
+
   </ion-content>
 </ion-view>
