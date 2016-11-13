@@ -100,6 +100,7 @@ angular.module('starter.services', [])
     		}
 
     		if (k == 0){
+    			scope.showAlertRegistered();
       			return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
         		registration = response.data;
         		return registration
