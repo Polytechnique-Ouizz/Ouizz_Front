@@ -497,15 +497,8 @@ var ics = function() {
 			eventLocation = myevents[i].location;
 			eventDescription = myevents[i].description;
 		}
-	
 	}
 	
-
-	/*Building ics File*/
-	var cal_single = ics();
-	cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
-	cal_single.download();
-
 
     	console.log('ouizzuser_id:' + ouizzuser_id);
     	if (ouizzuser_id == 0){
@@ -513,6 +506,11 @@ var ics = function() {
     		throw "Veuillez vous connecter pour pouvoir vous inscrire"
     	}
     	else {
+    		/*Building ics File*/
+			var cal_single = ics();
+			cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
+			cal_single.download();
+
     		for (var i = 0 ; i < myevents.length; i++){
     			var k = 0;
     			if (myevents[i].id == eventId){
