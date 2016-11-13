@@ -3,7 +3,7 @@ var iduser = 0;
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, $ionicPopup, $ionicModal, Events) {
-  $scope.events = [];
+	$scope.events = [];
     Events.all().then(function(apiEvents) {
       $scope.events = apiEvents;
 	})
@@ -14,9 +14,9 @@ angular.module('starter.controllers', [])
 	})
 
 
-$ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, animation: 'slide-in-up'}).then(function(modal) {
+	$ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, animation: 'slide-in-up'}).then(function(modal) {
     $scope.modal = modal;
-  });
+  	});
 
   $scope.openModal = function() {
     $scope.modal.show();
@@ -143,3 +143,5 @@ $ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, an
    		})
   	}
 });
+
+
