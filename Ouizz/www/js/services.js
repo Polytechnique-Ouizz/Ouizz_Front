@@ -23,8 +23,7 @@ angular.module('starter.services', [])
       .then(function(response) {
         registrations = response.data;
         console.log("iduser:" + iduser)
-		myevents.push(events[1]);
-        /*
+		myevents.push(events[1]);      /*
         for (registration in registrations){
         	console.log(iduser);
         	if (registration.ouizzuser_id == iduser){
