@@ -21,21 +21,18 @@ angular.module('starter.services', [])
 	allmine: function(iduser) {
       return $http.get("http://ouizz-api.herokuapp.com/registrations.json")
       .then(function(response) {
-        registrations = response.data;
-        console.log("iduser:" + iduser)
-		myevents.push(events[1]);      /*
-        for (registration in registrations){
-        	console.log(iduser);
-        	if (registration.ouizzuser_id == iduser){
-        		for (event in events){
-        			if (event.id == registration.event_id){
-        				myevents.push(event);
+        registrations = response.data; 
+      for (var i =0 ; i < registrations.length; i++){
+		console.log(registrations[i].ouizzuser_id);		
+        	if (registrations[i].ouizzuser_id == iduser){
+        		for (var j = 0 ; j < events.length; j++){
+        			if (events[j].id == registrations[i].event_id){
+					console.log(events);
+        				myevents.push(events[j]);
         			}
         		}
         	}
         }
-        */
-
         return myevents;
       })
     },
