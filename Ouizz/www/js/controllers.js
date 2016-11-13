@@ -135,8 +135,8 @@ angular.module('starter.controllers', [])
   $scope.register = function() {
     	console.log('iduser:' + iduser);
     	Events.allmine(iduser).then(function(myevents){
-   			return Events.register(myevents, $stateParams.eventId, iduser, $scope).then(function(registration) {
-      			console.log("Registration", Registration);
+   			return Events.register(myevents, $stateParams.eventId, iduser, $scope).then(function(registration){}, function(registration) {
+      			console.log("Registration", registration);
       			Events.allmine(iduser);
      		  $scope.close;
   	  		})
