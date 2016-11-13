@@ -494,8 +494,8 @@ var ics = function() {
 	for (var i = 0; i < myevents.length; i++){
 		if (myevents[i].id == eventId){
 			eventName = myevents[i].name;
-			eventLocation = myEvents[i].location;
-			eventDescription = myEvents[i].description;
+			eventLocation = myevents[i].location;
+			eventDescription = myevents[i].description;
 		}
 	
 	}
