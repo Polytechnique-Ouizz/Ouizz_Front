@@ -23,12 +23,15 @@ angular.module('starter.services', [])
       .then(function(response) {
         registrations = response.data; 
       for (var i =0 ; i < registrations.length; i++){
-		console.log(registrations[i].ouizzuser_id);		
+		//console.log(registrations[i].ouizzuser_id);		
         	if (registrations[i].ouizzuser_id == iduser){
         		for (var j = 0 ; j < events.length; j++){
         			if (events[j].id == registrations[i].event_id){
-					console.log(events);
-        				myevents.push(events[j]);
+					//console.log(events);
+						if (!myevents.includes(events[j])){
+							myevents.push(events[j]);
+						}
+        				
         			}
         		}
         	}
@@ -80,12 +83,29 @@ angular.module('starter.services', [])
       });
     },
 
-    register: function(eventId, ouizzuser_id) 
-    {
-      return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
-        registration = response.data;
-        return registration
-      });
-    }
-  };
+    register: function(myevents, eventId, ouizzuser_id, scope){
+    	console.log('ouizzuser_id:' + ouizzuser_id);
+    	if (ouizzuser_id == 0){
+    		scope.showAlertConnexion();
+    		throw "Veuillez vous connecter pour pouvoir vous inscrire"
+    	}
+    	else {
+    		for (var i = 0 ; i < myevents.length; i++){
+    			var k = 0;
+    			if (myevents[i].id == eventId){
+    				k = 1;
+    				scope.showAlertAlreadyregistered();
+    				throw "Vous etes déjà inscrit à cet évènement"
+    			}
+    		}
+
+    		if (k == 0){
+      			return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
+        		registration = response.data;
+        		return registration
+      			});
+      		}
+  		}
+  	}
+  }
 });

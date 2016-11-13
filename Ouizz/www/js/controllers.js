@@ -49,13 +49,12 @@ $ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, an
   };
 
   $scope.connexion = function(ouizzuser_username, ouizzuser_password) {
-
+  	$scope.modal.hide();
     Events.get_ouizzuser_id(ouizzuser_username, ouizzuser_password, $scope).then(function(id) {
     	iduser = id ;
-	Events.allmine(id);
-	console.log('ouizzuser_id = ' + id);
+		Events.allmine(id);
+		console.log('ouizzuser_id = ' + id);
     	console.log('ouizzuser_username = ' + ouizzuser_username + ', ouizzuser_password = ' + ouizzuser_password);
-    	
    		return id;
     });
   }
@@ -119,12 +118,28 @@ $ionicModal.fromTemplateUrl('templates/modal-register.html', { scope: $scope, an
    });
   };
 
+  $scope.showAlertConnexion = function() {
+    var alertPopup = $ionicPopup.alert({
+    title: 'Veuillez vous connecter pour pouvoir vous inscrire',
+    template: 'Veuillez réessayer',
+   });
+  };
+
+  $scope.showAlertAlreadyregistered = function() {
+    var alertPopup = $ionicPopup.alert({
+    title: 'Vous êtes déjà inscrit à cet évènement',
+    template: 'Veuillez réessayer',
+   });
+  };
+
   $scope.register = function() {
-    	console.log(iduser);
-   		return Events.register($stateParams.eventId, iduser).then(function(registration) {
-      	console.log("Registration", Registration);
-      	alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
-     	  $scope.close;
-  	  })
-  }
+    	console.log('iduser:' + iduser);
+    	Events.allmine(iduser).then(function(myevents){
+   			return Events.register(myevents, $stateParams.eventId, iduser, $scope).then(function(registration) {
+      		console.log("Registration", Registration);
+      		alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
+     		  $scope.close;
+  	  		})
+   		})
+  	}
 });
