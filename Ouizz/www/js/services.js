@@ -488,6 +488,7 @@ var ics = function() {
 	var eventDescription = null;
 	var eventLocation = null;
 	var eventBeginningDate = null;
+	var eventEndingDate = null;
 
 
 	for (var i = 0; i < myevents.length; i++){
@@ -495,12 +496,14 @@ var ics = function() {
 			eventName = myevents[i].name;
 			eventLocation = myevents[i].location;
 			eventDescription = myevents[i].description;
+			eventBeginningDate = myevents[i].date;
+			eventEndingDate = myevents[i].date + 3600;
 		}
 	}
 
 	/*Building ics File*/
 	var cal_single = ics();
-	cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
+	cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventEndingDate);
 	cal_single.download();
     	console.log('ouizzuser_id:' + ouizzuser_id);
     	if (ouizzuser_id == 0){

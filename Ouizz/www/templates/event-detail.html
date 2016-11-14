@@ -21,8 +21,8 @@
       <div class="item">
       <h2 align="center"> {{event.name}}</h2>
         <img class="full-image" ng-src="{{event.image}}">
-        <p>{{event.date}}</p>
-        <p>{{event.time}}</p>
+        <p>{{ event.date | date:"longDate" }}</p>
+        <p>{{event.time | date:"shortTime"}}</p>
         <p>{{event.location}}</p>
       </div>
       <div class="item item-body">
