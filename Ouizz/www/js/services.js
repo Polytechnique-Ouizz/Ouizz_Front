@@ -429,7 +429,6 @@ var ics = function() {
 						if (!myevents.includes(events[j])){
 							myevents.push(events[j]);
 						}
-        				
         			}
         		}
         	}
@@ -500,14 +499,11 @@ var ics = function() {
 	
 	}
 	
-
 	/*Building ics File*/
 	var cal_single = ics();
 	cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
 	cal_single.download();
 
-
-    	console.log('ouizzuser_id:' + ouizzuser_id);
     	if (ouizzuser_id == 0){
     		scope.showAlertConnexion();
     		throw "Veuillez vous connecter pour pouvoir vous inscrire"
