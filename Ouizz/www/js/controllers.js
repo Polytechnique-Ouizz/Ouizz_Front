@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
   $scope.showAlertAgreed = function() {
     var alertPopup = $ionicPopup.alert({
     title: 'C\'est tout bon !',
-    template: 'Vous êtes désormais inscrit(e)',
+    template: 'Vous êtes désormais connecté(e)',
    });
   };
 
@@ -111,7 +111,7 @@ angular.module('starter.controllers', [])
    });
   };
 
-  $scope.showAlertAgreed = function() {
+  $scope.showAlertRegistered = function() {
     var alertPopup = $ionicPopup.alert({
     title: 'C\'est tout bon !',
     template: 'Vous êtes désormais inscrit(e)',
@@ -136,8 +136,8 @@ angular.module('starter.controllers', [])
     	console.log('iduser:' + iduser);
     	Events.allmine(iduser).then(function(myevents){
    			return Events.register(myevents, $stateParams.eventId, iduser, $scope).then(function(registration) {
-      		console.log("Registration", Registration);
-      		alert("Votre réservation a bien été prise en compte avec le numéro " + registration.id);
+      			console.log("Registration", registration);
+      			Events.allmine(iduser);
      		  $scope.close;
   	  		})
    		})

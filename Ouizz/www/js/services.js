@@ -493,22 +493,26 @@ var ics = function() {
 	for (var i = 0; i < myevents.length; i++){
 		if (myevents[i].id == eventId){
 			eventName = myevents[i].name;
-			eventLocation = myEvents[i].location;
-			eventDescription = myEvents[i].description;
+			eventLocation = myevents[i].location;
+			eventDescription = myevents[i].description;
 		}
-	
 	}
-	
+
 	/*Building ics File*/
 	var cal_single = ics();
 	cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
 	cal_single.download();
-
+    	console.log('ouizzuser_id:' + ouizzuser_id);
     	if (ouizzuser_id == 0){
     		scope.showAlertConnexion();
     		throw "Veuillez vous connecter pour pouvoir vous inscrire"
     	}
     	else {
+    		/*Building ics File*/
+			var cal_single = ics();
+			cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
+			cal_single.download();
+
     		for (var i = 0 ; i < myevents.length; i++){
     			var k = 0;
     			if (myevents[i].id == eventId){
@@ -519,6 +523,7 @@ var ics = function() {
     		}
 
     		if (k == 0){
+    			scope.showAlertRegistered();
       			return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
         		registration = response.data;
         		return registration
