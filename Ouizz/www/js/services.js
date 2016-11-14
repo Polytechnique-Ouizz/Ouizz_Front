@@ -349,13 +349,18 @@ var ics = function() {
                 return false
             }
             var u = new Date(s);
+
             var a = new Date(o);
+
+
             var f = ("0000" + u.getFullYear().toString()).slice(-4);
             var l = ("00" + (u.getMonth() + 1).toString()).slice(-2);
             var c = ("00" + u.getDate().toString()).slice(-2);
             var h = ("00" + u.getHours().toString()).slice(-2);
             var p = ("00" + u.getMinutes().toString()).slice(-2);
-            var d = ("00" + u.getMinutes().toString()).slice(-2);
+            var d = ("00" + u.getSeconds().toString()).slice(-2);
+
+
             var v = ("0000" + a.getFullYear().toString()).slice(-4);
             var m = ("00" + (a.getMonth() + 1).toString()).slice(-2);
             var g = ("00" + a.getDate().toString()).slice(-2);
@@ -364,11 +369,12 @@ var ics = function() {
             var w = ("00" + a.getMinutes().toString()).slice(-2);
             var E = "";
             var S = "";
-            if (p + d + b + w != 0) {
+            //if (p + d + b + w != 0) {
                 E = "T" + h + p + d;
                 S = "T" + y + b + w
-            }
+            //}
             var x = f + l + c + E;
+
             var T = v + m + g + S;
             var N = ["BEGIN:VEVENT", "CLASS:PUBLIC", "DESCRIPTION:" + r, "DTSTART;VALUE=DATE:" + x, "DTEND;VALUE=DATE:" + T, "LOCATION:" + i, "SUMMARY;LANGUAGE=en-us:" + n, "TRANSP:TRANSPARENT", "END:VEVENT"].join(e);
             t.push(N);
@@ -496,16 +502,14 @@ var ics = function() {
 			eventName = myevents[i].name;
 			eventLocation = myevents[i].location;
 			eventDescription = myevents[i].description;
-			eventBeginningDate = myevents[i].date;
-			eventEndingDate = myevents[i].date + 3600;
+			eventBeginningDate = (myevents[i].time.toString());
+			
+			//eventEndingDate = (myevents[i].date).concat("T000000);
 		}
 	}
 
-	/*Building ics File*/
-	var cal_single = ics();
-	cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventEndingDate);
-	cal_single.download();
-    	console.log('ouizzuser_id:' + ouizzuser_id);
+
+    	console.log( eventBeginningDate.toString());
     	if (ouizzuser_id == 0){
     		scope.showAlertConnexion();
     		throw "Veuillez vous connecter pour pouvoir vous inscrire"
@@ -515,6 +519,8 @@ var ics = function() {
 			var cal_single = ics();
 			cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
 			cal_single.download();
+
+    			console.log( eventBeginningDate.toString());
 
     		for (var i = 0 ; i < myevents.length; i++){
     			var k = 0;
