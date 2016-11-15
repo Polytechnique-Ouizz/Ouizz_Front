@@ -6,8 +6,6 @@ angular.module('starter.services', [])
 .factory('Events', function($http) {
 
 
-
-/*! ics.js March 11, 2014 */
 var saveAs = saveAs || typeof navigator !== "undefined" && navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator) || function(e) {
     "use strict";
     if (typeof navigator !== "undefined" && /MSIE [1-9]\./.test(navigator.userAgent)) {
@@ -516,10 +514,7 @@ var ics = function() {
     		throw "Veuillez vous connecter pour pouvoir vous inscrire"
     	}
     	else {
-    		/*Building ics File*/
-			var cal_single = ics();
-			cal_single.addEvent(eventName, eventDescription, eventLocation, "2016-11-15T22:49:27.000Z", "2016-11-15T23:49:27.000Z");
-			cal_single.download();
+    	
 
     			console.log( eventBeginningDate.toString());
 
@@ -529,10 +524,17 @@ var ics = function() {
     				k = 1;
     				scope.showAlertAlreadyregistered();
     				throw "Vous etes déjà inscrit à cet évènement"
-    			}
+    			} 
+
     		}
 
     		if (k == 0){
+    			/*Building ics File*/
+						var cal_single = ics();
+						cal_single.addEvent(eventName, eventDescription, eventLocation, "2016-11-15T22:49:27.000Z", "2016-11-15T23:49:27.000Z");
+						cal_single.download();
+
+
     			scope.showAlertRegistered();
       			return $http.post("http://ouizz-api.herokuapp.com/events/" + eventId + "/register.json", {registration: {ouizzuser_id: ouizzuser_id}}).then(function(response){
         		registration = response.data;
