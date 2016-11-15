@@ -366,7 +366,7 @@ var ics = function() {
             var g = ("00" + a.getDate().toString()).slice(-2);
             var y = ("00" + a.getHours().toString()).slice(-2);
             var b = ("00" + a.getMinutes().toString()).slice(-2);
-            var w = ("00" + a.getMinutes().toString()).slice(-2);
+            var w = ("00" + a.getSeconds().toString()).slice(-2);
             var E = "";
             var S = "";
             //if (p + d + b + w != 0) {
@@ -502,14 +502,15 @@ var ics = function() {
 			eventName = myevents[i].name;
 			eventLocation = myevents[i].location;
 			eventDescription = myevents[i].description;
-			eventBeginningDate = (myevents[i].time.toString());
+			//eventBeginningDate = (myevents[i].time.toString());
+			eventBeginningDate = myevents[i].time.toString();
 			
 			//eventEndingDate = (myevents[i].date).concat("T000000);
 		}
 	}
 
 
-    	console.log( eventBeginningDate.toString());
+    	console.log(eventBeginningDate);
     	if (ouizzuser_id == 0){
     		scope.showAlertConnexion();
     		throw "Veuillez vous connecter pour pouvoir vous inscrire"
@@ -517,7 +518,7 @@ var ics = function() {
     	else {
     		/*Building ics File*/
 			var cal_single = ics();
-			cal_single.addEvent(eventName, eventDescription, eventLocation, eventBeginningDate, eventBeginningDate);
+			cal_single.addEvent(eventName, eventDescription, eventLocation, "2016-11-15T22:49:27.000Z", "2016-11-15T23:49:27.000Z");
 			cal_single.download();
 
     			console.log( eventBeginningDate.toString());
